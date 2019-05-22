@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Helmet from 'react-helmet'
+import '../assets/sass/styles.sass'
 import config from '../../data/config'
 import comingSoon from '../assets/img/studio_altad_coming_soon.jpg'
 
