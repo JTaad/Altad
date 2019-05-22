@@ -4,8 +4,6 @@ import {graphql} from 'gatsby'
 import {HTMLContent} from '../components/Content'
 import ArticleTemplate from '../components/ArticleTemplate'
 import SE0 from '../components/SEO'
-import Share from '../components/Share'
-import Disqus from '../components/Disqus'
 
 const ArticlePage = ({data}) => {
   const {markdownRemark: post} = data
@@ -18,31 +16,20 @@ const ArticlePage = ({data}) => {
         cover={post.frontmatter.cover}
         slug={post.fields.slug}
       />
-      <div className='container content'>
-        <div className='columns'>
-          <div className='column is-10 is-offset-1'>
+      <section className='section' >
+        <div className="container">
+          <div className="columns">
             <ArticleTemplate
               content={post.html}
               contentComponent={HTMLContent}
               cover={post.frontmatter.cover}
               meta_title={post.frontmatter.meta_title}
               meta_desc={post.frontmatter.meta_description}
-              tags={post.frontmatter.tags}
               title={post.frontmatter.title}
-            />
-            <Share
-              title={post.frontmatter.title}
-              slug={post.fields.slug}
-              excerpt={post.frontmatter.meta_description}
-            />
-            <hr />
-            <Disqus
-              title={post.frontmatter.title}
-              slug={post.fields.slug}
             />
           </div>
         </div>
-      </div>
+      </section>
     </section>
   )
 }
@@ -69,7 +56,6 @@ export const pageQuery = graphql`
         cover
         meta_title
         meta_description
-        tags
       }
     }
   }

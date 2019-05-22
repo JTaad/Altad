@@ -1,8 +1,33 @@
 import React from 'react'
 import {Link, graphql, StaticQuery} from 'gatsby'
-import SearchBox from '../SearchBox'
+import logo from '../../assets/img/altad_logo.png'
+import posed from 'react-pose'
 
-const NavBar = ({toggleNavbar, isActive}) => (
+
+const delayMiddle = 1000
+
+const Logo1 = posed.img({
+ 
+  open: { opacity: 1, 
+    y: 0,
+    delay: 150,
+    
+    transition: {
+      duration: 800
+    },},
+  closed: { 
+    opacity: 0 , 
+    delay: 0,
+    y: 20,
+    transition: {
+      duration: 800
+    },},
+});
+
+const NavBar = ({
+  toggleNavbar, 
+  isMiddleLogo, 
+  isActive}) => (
   <StaticQuery
     query={graphql`
             query SearchIndexQuery {
@@ -12,48 +37,58 @@ const NavBar = ({toggleNavbar, isActive}) => (
             }
         `}
     render={data => (
-      <nav className='navbar is-fixed-top' aria-label='main navigation'>
-        <div className='navbar-brand'>
-          <Link to='/' className='navbar-item'>
-            <strong>Gatsby Starter Business</strong>
-          </Link>
-          <button
-            className={`button navbar-burger ${isActive ? 'is-active' : ''}`}
-            data-target='navMenu'
-            onClick={toggleNavbar}
-          >
-            <span />
-            <span />
-            <span />
-          </button>
-        </div>
-        <div className={`navbar-menu ${isActive ? 'is-active' : ''}`} id='navMenu'>
+<nav
+  className='container is-fluid navbar'
+  role="navigation"
+  aria-label="main navigation"
+>
+  <div className="navbar-brand">
+  <button
+    className={`button navbar-burger ${isActive ? 'is-active' : ''}`}
+    data-target='navMenu'
+    onClick={toggleNavbar}
+  >
+    <span />
+    <span />
+    <span />
+  </button>
+  </div>
 
-          <div className='navbar-end'>
-            <SearchBox searchIndex={data.siteSearchIndex.index} />
-            <Link className='navbar-item' to='/about'>
-                            About
-            </Link>
-            <Link className='navbar-item' to='/pricing'>
-                            Pricing
-            </Link>
-            <Link className='navbar-item' to='/blog'>
-                            Blog
-            </Link>
-            <div className='navbar-item'>
-              <div className='field is-grouped'>
-                <p className='control'>
-                  <Link
-                    className='button is-primary is-outlined'
-                    to='/contact'>
-                            Contact Us
-                  </Link>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
+<div className={`navbar-menu ${isActive ? 'is-active' : ''}`} id='navMenu'>
+
+      <div className='nav-logo'>
+        <Link to='/'>
+          <Logo1 src={logo} style={{width: "100px"}}  pose={isMiddleLogo ? "open" : "closed"}  initialPose={isMiddleLogo ? "open" : "closed"} />
+        </Link>
+      
+      </div>
+
+
+    <div className='nav-links'>
+      <Link  className='is-size-6' 
+        to="/"
+      >
+      Accueil
+    </Link>
+      <Link  className='is-size-6' 
+        to="/projets" 
+      >
+      Projets
+    </Link>
+    
+      <Link  className='is-size-6' 
+        to="/studio"
+      >
+      Studio
+    </Link>
+    </div>
+
+      <div className="is-size-7" style={{order: '2'}}>
+        STUDIO DE DESIGN GRAPHIQUE & SOLUTIONS WEB
+      </div>
+  </div>
+
+</nav>
     )}
   />
 )

@@ -20,6 +20,12 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     {
+    resolve: "gatsby-plugin-transition-link",
+    options: {
+        layout: require.resolve(`./src/layouts/index.js`)
+      }
+    },
+    {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -68,8 +74,22 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-layout`,
     {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Fahkwang`,
+            variants: [`400`, `700`, `900`]
+          },
+          {
+            family: `Roboto`,
+            variants: [`300`,`300i`,`400`, `700`, `900`]
+          },
+        ],
+      },
+    },
+   /* {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {
         modulePath: `${__dirname}/src/cms/cms.js`,
@@ -77,6 +97,7 @@ module.exports = {
         htmlTitle: `Gatsby Starter Business Content Manager`,
       },
     },
+    */
     {
       resolve: `gatsby-plugin-nprogress`,
       options: {
@@ -168,7 +189,6 @@ module.exports = {
                       ) {
                         edges {
                           node {
-                            excerpt(pruneLength: 400)
                             html
                             id
                             fields { slug }

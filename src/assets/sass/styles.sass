@@ -1,25 +1,300 @@
+@charset "utf-8"
+
+$colorFont : #000
+$font1 : "Roboto"
+$font2 : "Fahkwang"    
+$primary: #00d1b2
+$navbar-background-color : transparent
+$primary-invert: #ffffff
+$navbar-item-color : #000
+$navbar-item-hover-color: #CCC
+$navbar-item-hover-background-color : transparent
+$subtitle-color : #000
+$title-color : #000
+$hr-background-color : #000
+$hr-height : 1px
+$hr-margin : 0 
+$footer-background-color : #000
+$widescreen-enabled: enabled
+
 @import "~bulma"
 
-$primary: #00d1b2
-$primary-invert: #ffffff
 
-nav
-  border-bottom: lightgray solid 0.1vmin
+a
+    color: #000
 
-.content .taglist
-  list-style: none
-  margin-bottom: 0
-  margin-left: 0
-  margin-right: 1.5rem
-  margin-top: 1.5rem
-  display: flex
-  flex-wrap: wrap
-  justify-content: left
-  align-items: center
-  li
-    padding: 0 2rem 1rem 0
-    margin-bottom: 1.5rem
-    margin-top: 0
 
-.margin-top-0
-  margin-top: 0 !important
+#projets-list-bar
+    position: absolute
+    width: 50px
+    height: 1px
+    background-color: #986821
+    left: 0
+    transition: all 0.2s ease-in-out
+
+    
+.projet-is-img-noMove 
+    bottom: 0
+    position: absolute
+    width: auto 
+.projet-is-img-move 
+    top: 35%
+    position: fixed
+    width: 40%!important
+
+@keyframes stripes 
+    100%
+        color: #986821
+
+.projets-list-one-links-on
+    a
+        animation: stripes .2s linear 1 forwards
+  
+.projet-is-img
+    left: 50%
+.projets-is-img-img
+    top: 35%
+    position: fixed
+.projets-list
+    list-style-type: square
+    list-style: square
+    li 
+        list-style-type: square
+        list-style: square
+        font-size: 1.4rem
+        margin-bottom: 30px
+        font-family: $font2
+        padding-left: -2px
+        p
+            margin-top: -4px
+            display: inline-block
+    .title-projets
+        font-family: $font2
+        font-weight: bold
+    .desc-projets
+        font-family: $font1
+        font-weight: 300
+        font-style: italic
+    small
+        font-family: $font2
+.projets-list-one-img-off
+    animation: fadeInFromNoneImg 0.4s ease
+    animation-fill-mode: forwards
+.projets-list-one-img-on
+    animation: NoneFromFadeInImg 0.4s ease
+    animation-fill-mode: forwards
+
+
+.clients
+    font-family: $font1  
+#button_contact
+    position: fixed
+    right: 25px
+    bottom: 25px
+    writing-mode: vertical-lr
+    text-orientation: upright
+    font-feature-settings: "vkrn", "vpal"
+    text-transform: uppercase
+    font-family: $font1
+    font-weight: 900
+    color: #FFF
+    background-color: #000
+    padding-top: .5em
+    padding-bottom: .5em
+    border-radius: 1em
+    letter-spacing: .2em
+    z-index: 9999999
+
+h2 
+    text-transform: uppercase
+    font-family: $font1
+    font-weight: 900
+
+.button-big-home
+    text-transform: uppercase
+    font-family: $font1
+    background-color: #000000
+    text-align: center
+    font-weight: 900
+    display: inline-block
+    border-radius: 1em
+    padding-left: .8em
+    padding-right: .8em
+    border: 0
+    color: #ffffff
+
+h4
+    text-transform: uppercase
+    font-family: $font1
+    font-weight: 900
+
+body
+    color: $colorFont!important
+    
+
+.navbar
+    position: absolute
+    width: calc(100% - 128px)!important
+    text-transform: uppercase
+    font-family: $font1
+    .nav-logo
+        order: 1
+        position: absolute
+        left: 50%
+        transform: translate(-50%)
+    #navMenu
+        justify-content: space-between
+        margin-top: 15px
+        *
+            display: flex
+            align-items: flex-end
+        .nav-links
+            margin-top: 2px
+            a
+                margin-top: 13px
+                padding-right: 15px
+                text-transform: uppercase
+                font-family: $font1
+                font-weight: 900
+                color: #000
+    .navbar-brand 
+        .nav-bar-item
+            font-weight: normal
+
+.subtitle
+    font-family: $font1
+
+
+#home-services
+    font-family: $font2
+    .column 
+        padding: 2.75rem
+        .home-services-content
+            display: block
+            ul
+                margin-top: 1em
+                text-align: center
+                font-family: $font1
+                text-transform: uppercase
+
+        .home-services-title
+            cursor: pointer
+            font-weight: bold
+            display: flex
+            justify-content: center
+            align-items: center
+            span
+                align-items: center
+            img 
+                margin-left: 1.1875em
+    .home-services-content-on
+        animation: NoneFromFadeIn 0.4s ease
+        animation-fill-mode: forwards
+    .home-services-content-off
+        animation: fadeInFromNone 0.4s ease
+        animation-fill-mode: forwards
+
+    .home-services-img-on
+        animation: rotateImg 0.4s ease
+        animation-fill-mode: forwards
+    .home-services-img-off
+        animation: rotateImgReturn 0.4s ease
+        animation-fill-mode: forwards
+
+    .home-services-icon-on
+        animation: rotateImgProjets 0.4s ease
+        animation-fill-mode: forwards
+    .home-services-icon-off
+        animation: rotateImgProjets 0.4s ease
+        animation-fill-mode: forwards
+
+
+.circle 
+    width: 100%
+    height: auto
+    display: table-cell
+    text-align: center
+    vertical-align: middle
+    border-radius: 50%
+    border: 1px solid #986821
+    margin-left: auto
+    margin-right: auto
+    p
+        font-family: $font1
+        font-weight: normal
+    .circle-title
+        font-weight: bold
+        font-family: $font2
+
+
+
+
+
+
+footer
+    a
+        color: #FFF
+    *
+        color: #FFF
+    .footer-contact
+        font-weight: 300
+        font-style: italic
+
+@keyframes rotateImg 
+    0% 
+        transform: rotate(0deg)
+    100%
+        transform: rotate(180deg)
+
+@keyframes rotateImgReturn 
+    0% 
+        transform: rotate(180deg)
+    100%
+        transform: rotate(0deg)
+
+
+@keyframes rotateImgProjets
+    0% 
+        transform: rotate(0deg)
+    100%
+        transform: rotate(-90deg)
+
+@keyframes rotateImgReturnProjets
+    0% 
+        transform: rotate(90deg)
+    100%
+        transform: rotate(0deg)
+
+@keyframes NoneFromFadeIn 
+    0% 
+        max-height: 0
+        opacity: 0
+        margin-top: -15px
+    100%
+        margin-top: 0px
+        max-height: 500px
+
+@keyframes fadeInFromNone 
+    0% 
+        margin-top: 0px
+        max-height: 500px
+    100%
+        margin-top: -15px
+        max-height: 0
+        opacity: 0
+
+@keyframes NoneFromFadeInImg
+    0% 
+        opacity: 0
+        margin-left: 15px
+    100%
+        margin-left: 0px
+
+@keyframes fadeInFromNoneImg
+    0% 
+        margin-left: 0px
+    100%
+        margin-left: -15px
+        opacity: 0
+
+    

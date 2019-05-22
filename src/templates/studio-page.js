@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import {graphql} from 'gatsby'
 import {HTMLContent} from '../components/Content'
-import AboutPageTemplate from '../components/AboutPageTemplate'
+import StudioPageTemplate from '../components/StudioPageTemplate'
 
-const AboutPage = ({data}) => {
+const StudioPage = ({data}) => {
   const {markdownRemark: post} = data
 
   return (
@@ -14,7 +14,7 @@ const AboutPage = ({data}) => {
         <title>{post.frontmatter.meta_title}</title>
         <meta name='description' content={post.frontmatter.meta_description} />
       </Helmet>
-      <AboutPageTemplate
+      <StudioPageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
         content={post.html}
@@ -23,14 +23,14 @@ const AboutPage = ({data}) => {
   )
 }
 
-AboutPage.propTypes = {
+StudioPage.propTypes = {
   data: PropTypes.object.isRequired,
 }
 
-export default AboutPage
+export default StudioPage
 
-export const aboutPageQuery = graphql`
-  query AboutPage($id: String!) {
+export const studioPageQuery = graphql`
+  query StudioPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
